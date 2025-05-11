@@ -1,18 +1,19 @@
-# Button Controlled LED
+# LM35 Temperature Sensor Reader
 
-This project controls an LED using a push button. Each press of the button toggles the LED on or off.
+This project reads analog temperature data from an LM35 sensor and displays the temperature in Celsius via the Serial Monitor.
 
 ## Components
 - Arduino Uno/Nano
-- Push button
-- 10kΩ resistor (for pull-down if needed)
-- LED
-- 220Ω resistor
+- LM35 Temperature Sensor
 
 ## Wiring
-- Button connected to digital pin 2 (with INPUT_PULLUP)
-- LED anode to digital pin 13, cathode to GND (through 220Ω resistor)
+- LM35 VCC to 5V
+- LM35 GND to GND
+- LM35 OUT to A0
+
+## Formula
+Voltage (V) = analogRead * (5.0 / 1023.0)  
+Temperature (°C) = Voltage * 100
 
 ## Behavior
-- When button is pressed, the LED toggles its state (ON/OFF).
-- Debouncing is handled with a 300ms delay.
+- Temperature data is printed to Serial Monitor every second.
